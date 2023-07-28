@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh "exit 0"
+                sh "exit 1"
             }
         }
         stage('Deploy') {
@@ -20,6 +20,7 @@ pipeline {
                   }
                 }
                 steps {
+                    echo currentBuild.result
                     echo 'Deploying....'
                 }
         }
